@@ -1,20 +1,32 @@
 {% extends "base.html" %}
+{% load static %} 
 
 
 {% block content %}
-<button type=""></button>
-<button type=""></button>
 
-<form method="post" id="form_candidate">
-    {% csrf_token %}
-    {{ form_candidate.as_p }}
-    <button type="submit">Registrar</button>
-</form>
+<h3>Eu sou:</h3>
+<div id="radios-form">
+    <span>candidato</span>
+    <input type="radio" name="type_form" id="radio-form-candidate" class="radio-form">
+    <span>recrutador</span>
+    <input type="radio" name="type_form" id="radio-form-recruiter" class="radio-form">
+</div>
 
-<form method="post" id="form_candidate">
-    {% csrf_token %}
-    {{ form_recruiter.as_p }}
-    <button type="submit">Registrar</button>
-</form>
+<div id="forms">
+    <form method="post" id="form-candidate" class="form-register form-candidate">
+        {% csrf_token %}
+        {{ form_candidate.as_p }}
+        <button type="submit">Registrar</button>
+    </form>
+
+    <form method="post" id="form-recruiter" class="form-register form-recruiter">
+        {% csrf_token %}
+        {{ form_recruiter.as_p }}
+        <button type="submit">Registrar</button>
+    </form>
+</div>
+
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+<script src="{% static 'js/register.js' %}"></script>
 
 {% endblock %}
