@@ -4,7 +4,7 @@ from datetime import datetime
 class User(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=50)
-    description = models.TextField(max_length=600)
+    description = models.TextField(max_length=600, blank=True, null=True)
     password = models.CharField(max_length=255)
     is_online = models.BooleanField()
     is_active = models.BooleanField()
@@ -12,7 +12,7 @@ class User(models.Model):
 
 class Candidate(User):
     profession = models.CharField(max_length=100)
-    header = models.CharField(max_length=255)
+    header = models.CharField(max_length=255, blank=True, null=True)
 
 class Recruiter(User):
     company = models.CharField(max_length=255)
@@ -21,8 +21,8 @@ class Recruiter(User):
 class Resume(models.Model):
     candidate = models.OneToOneField(Candidate, on_delete=models.CASCADE, related_name="candidate")
     summary = models.TimeField(max_length=600)
-    education = models.CharField(max_length=255)
-    link_portfolio = models.CharField(max_length=255, null=True, blank=True, default= None)
+    education = models.CharField(max_length=255, blank=True, null=True)
+    link_portfolio = models.CharField(max_length=255, blank=True, null=True, default= None)
 
 
 class Language(models.Model):
