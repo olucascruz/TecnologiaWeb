@@ -3,14 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>asvagas</title>
+    {% load static %}
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
 </head>
 <body>
-    <header></header>
+    <header>
+        <h1>asvagas</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Entrar</a></li>
+                <li><a href="#">Cadastro</a></li>
+            </ul>
+        </nav>
+    </header>
     <main> 
         {% block content %}
         {% endblock %}
     </main>
-    <footer></footer>
+    <footer>
+        <h2>Fooder</h2>
+    </footer>
 </body>
 </html>

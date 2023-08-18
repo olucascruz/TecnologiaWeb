@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<button type=""></button>
+<button type=""></button>
+
+<form method="post" id="form_candidate">
+    {% csrf_token %}
+    {{ form_candidate.as_p }}
+    <button type="submit">Registrar</button>
+</form>
+
+<form method="post" id="form_candidate">
+    {% csrf_token %}
+    {{ form_recruiter.as_p }}
+    <button type="submit">Registrar</button>
+</form>
+
+{% endblock %}
