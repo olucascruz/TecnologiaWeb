@@ -6,9 +6,15 @@ def index(request):
     return render(request, "templates/index.html")
 
 def login(request):
-    return render(request, "templates/login.html")
+    form_login = LoginForm()
+    context = {'form_login':form_login}
+    
+    return render(request, "templates/login.html", context=context )
 
 def register(request):
     form_candidate = RegistrationFormCandidate()
     form_recruiter = RegistrationFormRecruiter()
-    return render(request, "templates/register.html",{'form_candidate':form_candidate, 'form_recruiter':form_recruiter})
+    context = {'form_candidate':form_candidate,
+               'form_recruiter':form_recruiter}
+    
+    return render(request, "templates/register.html", context=context)
