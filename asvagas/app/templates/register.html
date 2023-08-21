@@ -4,14 +4,17 @@
 
 {% block content %}
 
-<h3>Eu sou:</h3>
+
 <div id="radios-form">
+    <h3>Eu sou:</h3>
+    <br>
     <span>candidato</span>
     <input type="radio" name="type_form" id="radio-form-candidate" class="radio-form">
-    <span>recrutador</span>
+    <span>recrutador</span> 
     <input type="radio" name="type_form" id="radio-form-recruiter" class="radio-form">
 </div>
-
+<hr>
+<br>
 <div id="forms">
     <form method="post" id="form-candidate" class="form-register form-candidate">
         {% csrf_token %}
