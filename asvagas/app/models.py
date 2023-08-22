@@ -1,20 +1,19 @@
 from django.db import models
-from datetime import datetime
+from django.contrib.auth.models import User
 
-class User(models.Model):
-    name = models.CharField(max_length=100)
-    email = models.EmailField(max_length=50)
+class Profile(models.Model):
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     description = models.TextField(max_length=600, blank=True, null=True)
-    password = models.CharField(max_length=255)
-    is_online = models.BooleanField()
-    is_active = models.BooleanField()
+    is_online = models.BooleanField(default=False)
 
+    def __str__(self) -> str:
+        return self.user
 
-class Candidate(User):
+class Candidate(Profile):
     profession = models.CharField(max_length=100)
     header = models.CharField(max_length=255, blank=True, null=True)
 
-class Recruiter(User):
+class Recruiter(Profile):
     company = models.CharField(max_length=255)
 
 
